@@ -1,0 +1,11 @@
+module tb;
+	localparam WIDTH = 8;
+	reg [WIDTH-1:0] a, b;
+	reg [3:0] op;
+	wire [WIDTH-1:0] result,
+	wire carry, overflow, zero, negative;
+	alu #(WIDTH) dut(a, b, op, result, carry, overflow, zero, negative);
+	initial begin
+		a = 8'h7F; b = 8'h01; op = 0; #1;
+	end
+endmodule
